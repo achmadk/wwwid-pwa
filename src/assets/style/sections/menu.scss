@@ -1,0 +1,17 @@
+.menu {
+  h4 {
+    @include dancing-script;
+    margin-top: 24px;
+    color: $color-primary;
+  }
+
+  p {
+    @extend .mb-0;
+  }
+
+  .card {
+    @media (min-width: 992px) {
+      width: 50% !important;
+    }
+  }
+}

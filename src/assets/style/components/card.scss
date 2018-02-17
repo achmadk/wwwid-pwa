@@ -1,0 +1,38 @@
+    .card {
+    @extend .border-0;
+    margin-bottom: 12px;
+    @extend .align-items-center;
+    &.img-at-left {
+        @extend .flex-row;
+    }
+    &.card-centered {
+        @media (max-width: 991px) {
+            flex-direction: row;
+        }
+        @media (min-width: 992px) {
+            text-align: center;
+            &>img {
+                margin-top: 59px;
+                margin-bottom: 57px;
+            }
+        }
+    }
+        @media (min-width: 768px) {
+            margin-right: 20px;
+        }
+        .card-img-overlay {
+            background-color: rgba(0,0,0, .25);
+            color: white;
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 18px;
+            // color: #000;
+            margin-bottom: 4px;
+        }
+        .card-text {
+            // @include lato-font('medium');
+            color: #333333;
+            font-size: 15px;
+        }
+    }

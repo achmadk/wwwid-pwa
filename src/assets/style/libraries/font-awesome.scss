@@ -1,0 +1,37 @@
+// @import "~font-awesome/scss/_variables";
+
+$fa-font-path: "~font-awesome/fonts" !default;
+$fa-font-size-base:   14px !default;
+$fa-line-height-base: 1 !default;
+//$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts" !default; // for referencing Bootstrap CDN font files directly
+$fa-css-prefix:       fa !default;
+$fa-version:          "4.7.0" !default;
+$fa-border-color:     #eee !default;
+$fa-inverse:          #fff !default;
+$fa-li-width:         (30em / 14) !default;
+
+// $fa-var-angle-double-down: "\f103";
+$fa-var-map-marker: "\f041";
+$fa-var-phone: "\f095";
+$fa-var-envelope: "\f0e0";
+$fa-var-clipboard: "\f0ea";
+
+@import "~font-awesome/scss/_mixins";
+@import "~font-awesome/scss/_path";
+@import "~font-awesome/scss/_core";
+@import "~font-awesome/scss/_larger";
+@import "~font-awesome/scss/_fixed-width";
+@import "~font-awesome/scss/_list";
+@import "~font-awesome/scss/_bordered-pulled";
+@import "~font-awesome/scss/_animated";
+@import "~font-awesome/scss/_rotated-flipped";
+@import "~font-awesome/scss/_stacked";
+
+// @import "~font-awesome/scss/_icons";
+// .#{$fa-css-prefix}-angle-double-down:before { content: $fa-var-angle-double-down; }
+.#{$fa-css-prefix}-map-marker:before { content: $fa-var-map-marker; }
+.#{$fa-css-prefix}-phone:before { content: $fa-var-phone; }
+.#{$fa-css-prefix}-envelope:before { content: $fa-var-envelope; }
+.#{$fa-css-prefix}-clipboard:before { content: $fa-var-clipboard; }
+
+@import "~font-awesome/scss/_screen-reader";

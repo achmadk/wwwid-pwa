@@ -1,0 +1,20 @@
+%enable-transition {
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+@mixin appear {
+  @extend %enable-transition;
+  opacity: 0;
+
+  .modal-enter-active {
+    opacity: 1;
+  }
+}
+
+@mixin zoom-font ($to) {
+  @extend %enable-transition;
+
+  .modal-enter-active & {
+    font-size: $to;
+  }
+}

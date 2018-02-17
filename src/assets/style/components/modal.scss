@@ -1,0 +1,19 @@
+.modal-content {
+  .modal-title {
+    @include dancing-script;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  .modal-body {
+    h4 {
+      @include dancing-script;
+      margin-top: 24px;
+      color: $color-primary;
+    }
+
+    p {
+      @extend .mb-0;
+    }
+  }
+}

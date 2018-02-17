@@ -1,0 +1,116 @@
+.join-section {
+    margin-top: 22px;
+    padding: 0; // height: 40%;
+    // position: relative;
+    // padding-bottom: 100px;
+    // @media (max-width: 767px) {
+    //   padding: 150px 0 !important;
+    // }
+    // @media (min-width: 768px) {
+    //     background-color: $footer-background;
+    //     padding-top: 0;
+    // }
+    // @media (min-height: 992px) {
+    //     height: 20%;
+    // }
+    // .fp-tableCell {
+    //     @media (min-width: 768px) {
+    //         display: block;
+    //     }
+    // }
+    // .join-background {
+    //     background-color: white;
+    //     @include hide-in-mobile;
+    //     @media (min-width: 768px) {
+    //         position: absolute;
+    //         bottom: 50%;
+    //         overflow: hidden;
+    //         max-width: 1920px;
+    //         width: 100%;
+    //     }
+    // }
+    .join-content {
+        border-top: solid 1px #e6e7e8;
+        border-bottom: solid 1px #e6e7e8;
+        padding-top: 33px;
+        padding-bottom: 47px;
+        @extend .container;
+        @extend .align-items-center;
+        @extend .justify-content-between; // @media (min-width: 768px) {
+        //   position: absolute;
+        //   top: 10%;
+        //   right: 0;
+        //   left: 0;
+        // }
+    }
+}
+
+.join-content-inner {
+    @extend .row;
+}
+
+.join-texts {
+    @extend .col-lg-6;
+    @include source-sans-pro-font;
+    color: #4a4a4a;
+    @media (max-width: 991px) {
+        text-align: center !important;
+    }
+    .join-title {
+        font-size: 50px;
+    }
+    .join-subtitle {
+        font-size: 21px;
+        opacity: 0.7;
+        @media (max-width: 991px) {
+            padding-bottom: 47px;
+        }
+    }
+}
+
+.join-form-content {
+    @extend .col-lg-6;
+    @extend .align-self-center;
+}
+
+#join-form {
+    @extend .p-0;
+    @extend .col-lg-12;
+    @extend .ml-auto;
+    @extend .mr-auto; // position: absolute;
+    // left: 0;
+    right: 0;
+    box-shadow: 0 0 30px 0 #cccccc;
+    border-radius: 25px;
+    input {
+        border-radius: 25px 0 0 25px;
+        border: none;
+        font-style: italic;
+        &::placeholder {
+            color: #e6e6e6;
+        }
+    }
+    button {
+        border: none;
+        border-radius: 0 25px 25px 0;
+    }
+    .invalid-feedback {
+        position: absolute;
+        top: 100%;
+    }
+}
+
+.join-form-inner {
+    @extend .input-group;
+    input {
+        @extend .form-control;
+    }
+}
+
+.join-form-button {
+    @extend .input-group-append;
+    button {
+        @extend .btn;
+        @extend .btn-primary;
+    }
+}

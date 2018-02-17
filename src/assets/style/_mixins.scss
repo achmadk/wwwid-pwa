@@ -1,0 +1,18 @@
+@mixin dancing-script() {
+  font-family: 'Dancing Script';
+}
+
+@mixin delius-swash-caps() {
+    font-family: 'Delius Swash Caps';
+}
+
+@mixin cinzel() {
+    font-family: 'Cinzel';
+}
+
+@mixin hide-in-mobile {
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "env" , {
+        "modules": false,
+        "targets": {
+          "node": "current",
+          "uglify": true,
+          "useBuiltIns": true
+        }
+      }
+    ],
+    "stage-2",
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "react-hot-loader/babel",
+    "syntax-dynamic-import"
+  ]
+}

@@ -1,0 +1,31 @@
+#footer {
+    min-height: 52px;
+    width: 100%;
+    background-color: $footer-background;
+    text-align: center;
+    color: #999;
+    background-color: #222;
+    // font-family: 'Montserrat';
+    font-size: 12px;
+    p {
+        @extend .text-center;
+        margin-bottom: 0;
+    }
+    .crafted-with-love {
+        @media (min-width: 768px) {
+            float: right;
+        }
+    }
+    .copyright {
+        @media (min-width: 768px) {
+            float: left;
+        }
+    }
+}
+
+.footer-container {
+    @extend .container;
+    @media (min-width: 768px) {
+      padding-top: 14px;
+    }
+}

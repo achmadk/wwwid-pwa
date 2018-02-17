@@ -1,0 +1,13 @@
+@import '~magnific-popup/src/css/main.scss';
+@import '~magnific-popup/src/css/_settings.scss';
+
+.mfp-no-margins {
+  & img.mfp-img,
+  & .mfp-container {
+    padding: 0;
+  }
+  & .mfp-figure:after {
+  	top: 0;
+  	bottom: 0;
+  }
+}

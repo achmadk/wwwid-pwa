@@ -1,0 +1,29 @@
+img.lazy-load {
+    & {
+      position: relative;
+
+      &.bg-dark-blue {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &[alt]:after {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        content: ' ';
+      }
+      &[alt].bg-gray:after {
+        background: $gray-2;
+      }
+      &[alt].bg-dark-blue:after {
+        background: $dark-blue-grey;
+      }
+    }
+}

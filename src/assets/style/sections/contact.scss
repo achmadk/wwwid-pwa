@@ -1,0 +1,33 @@
+#contact {
+  &.no-color-main {
+    background-color: #262626;
+
+    hr {
+      border-color: #fff;
+    }
+
+    .section-heading,
+    h5 {
+      color: #fff;
+    }
+
+    .text-faded {
+      color: #ddd;
+    }
+  }
+
+  .text-faded {
+    color: #000;
+  }
+
+  .contact-info {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  &:not(.no-color-main) {
+    button {
+      background-color: white;
+    }
+  }
+}
