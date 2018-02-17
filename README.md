@@ -1,4 +1,4 @@
-# Landing Page for Arry Utama Catering #
+# WWWID PWA Challenge #
 
 ## Prerequisites
 - [Node.js LTS version][nodejs_link]
