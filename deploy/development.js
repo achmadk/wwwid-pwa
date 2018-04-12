@@ -21,7 +21,10 @@ webpackConfig.devServer = {
   contentBase: path.resolve(__dirname, '../temp'),
   publicPath: '/',
   hot: true,
-  historyApiFallback: true
+  historyApiFallback: {
+    disableDotRule: true
+  },
+  https: true
 }
 
 webpackConfig.devtool = 'source-map'

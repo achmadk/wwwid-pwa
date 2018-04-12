@@ -5,7 +5,7 @@ process.setMaxListeners(Infinity);
 
 gulp.task('default', () => {
   try {
-    let pages = [ 'index.html', 'article-details.html' ];
+    let pages = [ 'index.html' ];
     pages.map(page => {
       return critical.generate({
         base: 'dist/',
@@ -33,7 +33,7 @@ gulp.task('default', () => {
       }).then(output => {
         console.log(`Successfully generate critical inline style on page ${page}`);
         console.log(output);
-      }).error(err => {
+      }).catch(err => {
         console.error(err);
       });
     })

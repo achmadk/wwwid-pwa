@@ -7,6 +7,8 @@ let name = process.env.NODE_ENV ? "[hash].[ext]" : 'font/[hash].[ext]'
 
 module.exports = {
   entry: './src/app.js',
+  mode: process.env.NODE_ENV == "production" ? "production" : "development",
+  performance: { hints: false },
   module: {
     rules: [{
       test: /\.js?$/,
