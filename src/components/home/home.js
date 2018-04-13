@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 // import compose from 'recompose/compose'
 import axios from 'axios'
+import sanitize from 'sanitize-html'
 
 import RecipeCardList from './recipe-card-list'
 
@@ -15,7 +16,11 @@ export default class Home extends PureComponent {
     try {
       let { data } = await axios.get('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fwwwid')
       let articles = data.items
-      console.log(articles)
+      articles.map(({ content }) => {
+        let result = content.match(/<p>.*.<\/p>\n/g)[0].replace('<p>','').replace('</p>', '')
+        console.log(result)
+        return result
+      })
       this.setState({ articles })
     } catch (e) {
       console.log(e)
