@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 
-import CardHeader from 'material-ui/Card/CardHeader'
-import Avatar from 'material-ui/Avatar'
-import CardContent from 'material-ui/Card/CardContent'
-import CardMedia from 'material-ui/Card/CardMedia'
-import Typography from 'material-ui/Typography'
+import CardHeader from '@material-ui/core/CardHeader'
+import Avatar from '@material-ui/core/Avatar'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Typography from '@material-ui/core/Typography'
 
 export default function RecipeCardNotExpanded ({ classes, recipe }) {
   let { media, avatar } = classes

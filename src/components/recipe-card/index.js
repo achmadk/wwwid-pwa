@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Card from 'material-ui/Card/Card'
-import red from 'material-ui/colors/red'
+import Card from '@material-ui/core/Card'
+import red from '@material-ui/core/colors/red'
 
 import RecipeCardExpanded from './recipe-card-expanded'
 import RecipeCardNotExpanded from './recipe-card-not-expanded'
 
 import compose from 'recompose/compose'
-import withStyles from 'material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 
 function RecipeCard ({ recipe, expanded = false, goBack = null, classes, onClick, ...rest }) {
   let cardClassName = !expanded ? classes.card : 'recipe'

@@ -10,6 +10,7 @@ const LoadableComponent = AppLoadable({
 })
 
 export default function Home () {
+  console.log(LoadableComponent)
   return (
     <LoadableComponent />
   )

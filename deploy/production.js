@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 let webpackConfig = require('../webpack.config')
 
@@ -68,6 +69,10 @@ webpackConfig.plugins.push(
     topLevel: true,
     comments: false,
     sourceMap: null
+  }),
+  new WorkboxPlugin.GenerateSW({
+    clientsClaim: true,
+    skipWaiting: true
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'

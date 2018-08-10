@@ -12,8 +12,9 @@ const RecipeCardWithNavigation = compose(
 )(RecipeCard)
 
 export default function RecipeCardList ({ recipe }) {
+  let style = { margin: 8, cursor: 'pointer' }
   return (
-    <div style={{margin: 8}}>
+    <div style={style}>
       <RecipeCardWithNavigation recipe={recipe} />
     </div>
   )

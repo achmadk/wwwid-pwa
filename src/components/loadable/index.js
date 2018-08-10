@@ -1,3 +1,4 @@
+// import React from 'react'
 import LoadableVisibility from 'react-loadable-visibility/react-loadable'
 
 import Loading from './loading'

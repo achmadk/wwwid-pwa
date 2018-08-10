@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 // import compose from 'recompose/compose'
 import axios from 'axios'
-import sanitize from 'sanitize-html'
+// import sanitize from 'sanitize-html'
 
 import RecipeCardList from './recipe-card-list'
 
@@ -17,7 +17,7 @@ export default class Home extends PureComponent {
       let { data } = await axios.get('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fwwwid')
       let articles = data.items
       articles.map(({ content }) => {
-        let result = content.match(/<p>.*.<\/p>\n/g)[0].replace('<p>','').replace('</p>', '')
+        let result = content.match(/<p>.*.<\/p>\n/g)[0].replace('<p>', '').replace('</p>', '')
         console.log(result)
         return result
       })
@@ -28,6 +28,7 @@ export default class Home extends PureComponent {
   }
   render () {
     let { articles } = this.state
+    console.log('articles: ', articles)
     return (
       <Fragment>
         {

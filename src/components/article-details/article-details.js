@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import compose from 'recompose/compose'
 import withRouter from 'react-router-dom/withRouter'
 
@@ -11,8 +11,9 @@ import withRecipe from './utils/with-recipe'
 function ArticleDetails ({ recipe, goBack }) {
   console.log(recipe)
   return (
-    // <div />
-    <RecipeCard recipe={recipe} goBack={goBack} expanded />
+    <Fragment>
+      <RecipeCard recipe={recipe} goBack={goBack} expanded />
+    </Fragment>
   )
 }
 
