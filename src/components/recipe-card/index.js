@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Card from '@material-ui/core/Card'
-import red from '@material-ui/core/colors/red'
+import pink from '@material-ui/core/colors/pink'
 
 import RecipeCardExpanded from './recipe-card-expanded'
 import RecipeCardNotExpanded from './recipe-card-not-expanded'
@@ -36,7 +36,7 @@ const styles = {
     height: 200
   },
   avatar: {
-    backgroundColor: red[500]
+    backgroundColor: pink[900]
   },
   navIcon: {
     color: 'white'

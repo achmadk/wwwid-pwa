@@ -6,7 +6,7 @@ const withNavigation = Component => ({history, recipe, ...rest}) => {
     const { top, right, bottom, left, width, height } = element.getBoundingClientRect()
     let from = { top: top + 72, right, bottom, left, width, height }
     history.push({
-      pathname: `/articles.html`,
+      pathname: `/articles`,
       search: `id=${recipe.guid}`,
       state: {
         to: 'modal',

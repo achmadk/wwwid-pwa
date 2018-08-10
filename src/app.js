@@ -15,7 +15,7 @@ import AppRouting from './routing'
 
 import theme from './theme'
 
-if (('serviceWorker' in navigator) && process.env.NODE_ENV === 'production') {
+if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
       let registration = await navigator.serviceWorker.register('/service-worker.js')

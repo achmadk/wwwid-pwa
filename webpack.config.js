@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 let name = process.env.NODE_ENV ? "[hash].[ext]" : 'font/[hash].[ext]'
 
@@ -85,6 +86,11 @@ module.exports = {
       minify: {
         removeComments: true
       }
-    })
+    }),
+    new WorkboxPlugin.GenerateSW({
+      importWorkboxFrom: 'local',
+      clientsClaim: true,
+      skipWaiting: true
+    }),
   ]
 }

@@ -28,7 +28,6 @@ export default class Home extends PureComponent {
   }
   render () {
     let { articles } = this.state
-    console.log('articles: ', articles)
     return (
       <Fragment>
         {

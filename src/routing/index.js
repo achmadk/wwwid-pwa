@@ -45,7 +45,7 @@ class App extends PureComponent {
             mountOnEnter appear>
             <div className={activeModal} style={pos}>
               <Switch location={location}>
-                <Route path='/articles.html' component={ArticleDetails} />
+                <Route path='/articles' component={ArticleDetails} />
               </Switch>
             </div>
           </CSSTransition>

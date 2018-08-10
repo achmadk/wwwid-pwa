@@ -2,11 +2,11 @@ const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 // const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
 
 let webpackConfig = require('../webpack.config')
 
@@ -57,6 +57,9 @@ webpackConfig.plugins.push(
     root: path.resolve(__dirname, '..'),
     verbose: true
   }),
+  new CopyWebpackPlugin([
+    { from: './src/_redirects' }
+  ]),
   new webpack.DefinePlugin({
     'process.env': {'NODE_ENV': JSON.stringify(process.env.NODE_ENV)},
     '__DEVTOOLS__': process.env.NODE_ENV == "development"
@@ -69,10 +72,6 @@ webpackConfig.plugins.push(
     topLevel: true,
     comments: false,
     sourceMap: null
-  }),
-  new WorkboxPlugin.GenerateSW({
-    clientsClaim: true,
-    skipWaiting: true
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'
