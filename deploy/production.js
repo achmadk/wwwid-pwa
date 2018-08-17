@@ -3,7 +3,7 @@ const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -75,6 +75,17 @@ webpackConfig.plugins.push(
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'
+  }),
+  new PreloadWebpackPlugin({
+    include: 'allAssets',
+    rel: 'preload',
+    as (entry) {
+      console.log(entry)
+      if (/\.css$/.test(entry)) return 'style'
+      if (/\.woff(2)$/.test(entry)) return 'font'
+      if (/\.png$/.test(entry)) return 'image'
+      return 'script'
+    }
   }),
   new CompressionPlugin({
     test: /\.(js|css)/,
