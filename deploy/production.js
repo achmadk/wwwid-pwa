@@ -79,8 +79,8 @@ webpackConfig.plugins.push(
   new PreloadWebpackPlugin({
     include: 'allAssets',
     rel: 'preload',
+    fileBlacklist: [ /\.js/, /\.css/ ],
     as (entry) {
-      console.log(entry)
       if (/\.css$/.test(entry)) return 'style'
       if (/\.(woff|woff2)$/.test(entry)) return 'font'
       if (/\.png$/.test(entry)) return 'image'
