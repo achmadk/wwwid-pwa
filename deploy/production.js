@@ -82,7 +82,7 @@ webpackConfig.plugins.push(
     as (entry) {
       console.log(entry)
       if (/\.css$/.test(entry)) return 'style'
-      if (/\.woff(2)$/.test(entry)) return 'font'
+      if (/\.(woff|woff2)$/.test(entry)) return 'font'
       if (/\.png$/.test(entry)) return 'image'
       return 'script'
     }
