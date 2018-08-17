@@ -1,33 +1,20 @@
 import React, { PureComponent, Fragment } from 'react'
-// import compose from 'recompose/compose'
-import axios from 'axios'
-// import sanitize from 'sanitize-html'
+import connect from 'react-redux/lib/connect/connect'
 
 import RecipeCardList from './recipe-card-list'
 
-// import withRecipes from './utils/with-recipes'
+import { getArticles } from '../../store/actions/articles'
 
-// export default function Home ({ recipes, goToRecipes, history }) {
-export default class Home extends PureComponent {
-  state = { // eslint-disable-line no-undef
-    articles: []
-  }
+class Home extends PureComponent {
   async componentDidMount () {
     try {
-      let { data } = await axios.get('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fwwwid')
-      let articles = data.items
-      articles.map(({ content }) => {
-        let result = content.match(/<p>.*.<\/p>\n/g)[0].replace('<p>', '').replace('</p>', '')
-        console.log(result)
-        return result
-      })
-      this.setState({ articles })
+      await this.props.getArticles()
     } catch (e) {
       console.log(e)
     }
   }
   render () {
-    let { articles } = this.state
+    let { articles } = this.props
     return (
       <Fragment>
         {
@@ -38,16 +25,10 @@ export default class Home extends PureComponent {
   }
 }
 
-// function Home ({ recipes, goToRecipes, history }) {
-//   return (
-//     <Fragment>
-//       {
-//         recipes.map(recipe => <RecipeCardList key={`recipe-${recipe.id}`} recipe={recipe} />)
-//       }
-//     </Fragment>
-//   )
-// }
+const mapStateToProps = ({ articles }) => ({ articles: articles.data })
 
-//  compose(
-//   withRecipes
-// )(Home)
+const mapDispatchToProps = {
+  getArticles
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

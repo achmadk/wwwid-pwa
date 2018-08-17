@@ -9,7 +9,7 @@
     min-height: 100vh;
     @include zoom-font(32px);
     .actions {
-      position: absolute !important;
+      position: fixed !important;
       display: flex;
     }
 

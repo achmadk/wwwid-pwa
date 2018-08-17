@@ -1,5 +1,4 @@
 import React from 'react'
-import compose from 'recompose/compose'
 
 import AppLoadable from '../loadable'
 
@@ -13,6 +12,4 @@ function ArticleDetails () {
   )
 }
 
-export default compose(
-
-)(ArticleDetails)
+export default ArticleDetails
