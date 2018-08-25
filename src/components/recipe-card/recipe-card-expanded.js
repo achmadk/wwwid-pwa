@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import ArrowBack from '@material-ui/icons/ArrowBack'
 import CardContent from '@material-ui/core/CardContent'
-import SanitizedHTML from 'react-sanitized-html'
+import HTMLContent from '../html-content'
 
 export default function RecipeCardExpanded ({ classes, recipe, goBack }) {
   let { avatar } = classes
@@ -25,12 +25,16 @@ export default function RecipeCardExpanded ({ classes, recipe, goBack }) {
           </div>
         )
       }
-      <img src={thumbnail} style={{height: '50vh', objectFit: 'cover'}} />
+      <img
+        src={thumbnail}
+        style={{height: '50vh', objectFit: 'cover'}}
+        alt={title}
+      />
       <CardContent>
         <Typography variant='headline' component='h2'>{title}</Typography>
         <CardHeader avatar={avatarContent} title={author} subheader={pubDate} />
-        <Typography component='p'>
-          <SanitizedHTML html={content} />
+        <Typography component='div'>
+          <HTMLContent html={content} />
         </Typography>
       </CardContent>
     </div>

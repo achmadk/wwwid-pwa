@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 
-import SanitizedHTML from 'react-sanitized-html'
+import HTMLContent from '../html-content'
 
 export default function RecipeCardNotExpanded ({ classes, recipe }) {
   let { media, avatar } = classes
@@ -17,11 +17,18 @@ export default function RecipeCardNotExpanded ({ classes, recipe }) {
   return (
     <Fragment>
       <CardHeader avatar={avatarContent} title={author} subheader={pubDate} />
-      <CardMedia className={media} image={thumbnail} title={title} />
+      <CardMedia className={media} src={thumbnail} title={title}>
+        <img
+          data-src={thumbnail}
+          style={{height: '100%', width: '100%', objectFit: 'cover'}}
+          className='lazyload'
+          alt={title}
+        />
+      </CardMedia>
       <CardContent>
         <Typography variant='headline' component='h2'>{title}</Typography>
-        <Typography component='p'>
-          <SanitizedHTML html={description} />
+        <Typography component='div'>
+          <HTMLContent html={description} />
         </Typography>
       </CardContent>
     </Fragment>

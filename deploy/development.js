@@ -24,7 +24,7 @@ webpackConfig.devServer = {
   historyApiFallback: {
     disableDotRule: true
   },
-  https: true
+  // https: true
 }
 
 webpackConfig.devtool = 'source-map'

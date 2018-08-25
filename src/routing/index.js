@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { withRouter, Switch, Route } from 'react-router-dom'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import compose from 'recompose/compose'
@@ -10,6 +10,7 @@ import CSSTransition from '../components/css-transition'
 import Navbar from '../components/navbar'
 import Home from '../components/home'
 import ArticleDetails from '../components/article-details'
+import NotFound from '../components/not-found'
 // import About from '../components/about'
 // import Products from '../components/products'
 // import Menu from '../components/menu'
@@ -38,6 +39,7 @@ class App extends PureComponent {
         <div className='view-container'>
           <Switch location={homeLocation}>
             <Route exact path='/' component={Home} />
+            <Route component={NotFound} />
           </Switch>
         </div>
         <TransitionGroup>

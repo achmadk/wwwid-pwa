@@ -1,6 +1,6 @@
-import combineReducers from 'redux/src/combineReducers'
-import persistReducer from 'redux-persist/lib/persistReducer'
-import storage from 'redux-persist/lib/storage'
+import { combineReducers } from 'redux'
+import persistReducer from 'redux-persist/es/persistReducer'
+import storage from 'redux-persist/es/storage'
 
 import articles from './articles'
 

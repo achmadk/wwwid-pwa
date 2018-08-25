@@ -3,10 +3,12 @@ const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const PreloadWebpackPlugin = require('preload-webpack-plugin')
+// const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+// const HTMLCriticalPlugin = require('html-critical-webpack-plugin')
 
 let webpackConfig = require('../webpack.config')
 
@@ -76,20 +78,29 @@ webpackConfig.plugins.push(
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'
   }),
-  new PreloadWebpackPlugin({
-    include: 'allAssets',
-    rel: 'preload',
-    fileBlacklist: [ /\.js/, /\.css/ ],
-    as (entry) {
-      if (/\.css$/.test(entry)) return 'style'
-      if (/\.(woff|woff2)$/.test(entry)) return 'font'
-      if (/\.png$/.test(entry)) return 'image'
-      return 'script'
-    }
-  }),
+  // new PreloadWebpackPlugin({
+  //   include: 'asyncChunks',
+  //   rel: 'preload'
+  // }),
   new CompressionPlugin({
     test: /\.(js|css)/,
     cache: true
+  // })
+  }),
+  new WebpackPwaManifest({
+    name: "WWWID PWA React Material UI",
+    short_name: "WWWID React",
+    description: "PWA to read RSS from medium.com/wwwid",
+    start_url: "/?utm_source=pwa",
+    icons: [
+      {
+        src: path.resolve('./src/assets/icons/icon512.png'),
+        "sizes": [ 144, 192, 512 ]
+      }
+    ],
+    theme_color: "#3f51b5",
+    background_color: "#ffffff",
+    display: "standalone"
   }),
   // new HTMLCriticalPlugin({
   //   base: path.resolve(__dirname, '../dist'),

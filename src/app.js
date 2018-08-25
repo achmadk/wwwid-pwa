@@ -7,11 +7,12 @@ import './assets/style/app.scss'
 
 // import libraries related to loop landing page development
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render, hydrate } from 'react-dom'
 import BrowserRouter from 'react-router-dom/BrowserRouter'
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
+import 'lazysizes/lazysizes.min.js'
 
 import AppRouting from './routing'
 
@@ -44,4 +45,5 @@ function App () {
 }
 
 let appElement = document.getElementById('app')
-ReactDOM[appElement.hasChildNodes() ? 'hydrate' : 'render'](<App />, appElement)
+let init = appElement.hasChildNodes() ? hydrate : render
+init(<App />, appElement)

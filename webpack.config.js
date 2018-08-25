@@ -90,7 +90,17 @@ module.exports = {
     new WorkboxPlugin.GenerateSW({
       importWorkboxFrom: 'local',
       clientsClaim: true,
-      skipWaiting: true
+      skipWaiting: true,
+      include: [
+        /\.html$/,
+        /\.js$/,
+        /\.css$/,
+        /\.woff$/,
+        /\.woff2$/,
+        /\.json$/,
+        /\.webmanifest$/,
+        /\.gz$/
+      ]
     }),
   ]
 }
