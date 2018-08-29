@@ -6,6 +6,11 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 
 let name = process.env.NODE_ENV ? "[hash].[ext]" : 'font/[hash].[ext]'
 
+// let template = process.env.NODE_ENV === 'production'
+//   ? '!!prerender-loader?string!./src/index.html'
+//   : './src/index.html'
+let template = './src/index.html'
+
 module.exports = {
   entry: './src/app.js',
   mode: process.env.NODE_ENV == "production" ? "production" : "development",
@@ -80,7 +85,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template,
       inject: 'body',
       hash: process.env.NODE_ENV == "production",
       minify: {

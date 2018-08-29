@@ -12,7 +12,8 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 let webpackConfig = require('../webpack.config')
 
-webpackConfig.entry = [ 'babel-polyfill', './src/app.js' ]
+// webpackConfig.entry = [ 'babel-polyfill', './src/app.js' ]
+webpackConfig.entry = './src/app.js'
 
 webpackConfig.output = {
   path: path.resolve(__dirname, '../dist'),
@@ -50,12 +51,27 @@ webpackConfig.optimization = {
         enforce: true
       }
     }
-  }
+  },
+  minimizer: [
+    new BabelMinifyWebpackPlugin({
+      keepFnName: true,
+      keepClassName: true,
+      removeConsole: true
+    }, {
+      mangle: {
+        topLevel: true
+      },
+      comments: false,
+      sourceMap: false,
+    }),
+  ]
 }
 
 webpackConfig.plugins.push(
   new webpack.NoEmitOnErrorsPlugin(),
-  new CleanWebpackPlugin([path.resolve(__dirname, '../dist')], {
+  new CleanWebpackPlugin([
+    path.resolve(__dirname, '../dist')
+  ], {
     root: path.resolve(__dirname, '..'),
     verbose: true
   }),
@@ -66,15 +82,15 @@ webpackConfig.plugins.push(
     'process.env': {'NODE_ENV': JSON.stringify(process.env.NODE_ENV)},
     '__DEVTOOLS__': process.env.NODE_ENV == "development"
   }),
-  new BabelMinifyWebpackPlugin({
-    keepFnName: true,
-    keepClassName: true,
-    removeConsole: true
-  }, {
-    topLevel: true,
-    comments: false,
-    sourceMap: null
-  }),
+  // new BabelMinifyWebpackPlugin({
+  //   keepFnName: true,
+  //   keepClassName: true,
+  //   removeConsole: true
+  // }, {
+  //   topLevel: true,
+  //   comments: false,
+  //   sourceMap: null
+  // }),
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'
   }),
@@ -82,11 +98,6 @@ webpackConfig.plugins.push(
   //   include: 'asyncChunks',
   //   rel: 'preload'
   // }),
-  new CompressionPlugin({
-    test: /\.(js|css)/,
-    cache: true
-  // })
-  }),
   new WebpackPwaManifest({
     name: "WWWID PWA React Material UI",
     short_name: "WWWID React",
@@ -108,6 +119,7 @@ webpackConfig.plugins.push(
   //   dest: 'index.html',
   //   inline: true,
   //   minify: true,
+  //   extract: true,
   //   timeout: 90000,
   //   dimensions: [{
   //     height: 640,
@@ -118,14 +130,15 @@ webpackConfig.plugins.push(
   //   }, {
   //     height: 720,
   //     width: 1280
-  //   }, {
-  //     height: 1080,
-  //     width: 1920
   //   }],
   //   penthouse: {
   //     blockJSRequest: false
   //   }
   // }),
+  new CompressionPlugin({
+    test: /\.(js|css)/,
+    cache: true
+  }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     reportFilename: './../report.html'

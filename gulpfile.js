@@ -1,9 +1,12 @@
 let gulp = require('gulp');
 let critical = require('critical');
+let tar = require('gulp-tar');
+let gzip = require('gulp-gzip');
+let cachebust = require('gulp-cache-bust');
 
 process.setMaxListeners(Infinity);
 
-gulp.task('default', () => {
+gulp.task('inline-critical-css', () => {
   try {
     let pages = [ 'index.html' ];
     pages.map(page => {
@@ -41,3 +44,14 @@ gulp.task('default', () => {
     console.log(e)
   }
 });
+
+gulp.task('build', () => {
+  let stream = gulp.src('./temp/*.*')
+    .pipe(tar('archive.tar'))
+    .pipe(cachebust({ type: 'timestamp' }))
+    .pipe(gzip())
+    .pipe(gulp.dest('dist'))
+  return stream
+})
+
+gulp.task('default', ['inline-critical-css'])
