@@ -3,7 +3,7 @@ import compose from 'recompose/compose'
 
 import RecipeCard from '../recipe-card'
 
-import { withRouter } from 'react-router-dom'
+import withRouter from 'react-router/withRouter'
 import withNavigation from './utils/with-navigation'
 
 const RecipeCardWithNavigation = compose(

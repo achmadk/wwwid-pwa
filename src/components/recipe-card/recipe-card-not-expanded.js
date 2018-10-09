@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-import CardHeader from '@material-ui/core/CardHeader'
-import Avatar from '@material-ui/core/Avatar'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
+import CardHeader from '@material-ui/core/CardHeader/CardHeader'
+import Avatar from '@material-ui/core/Avatar/Avatar'
+import CardContent from '@material-ui/core/CardContent/CardContent'
+import CardMedia from '@material-ui/core/CardMedia/CardMedia'
 import Typography from '@material-ui/core/Typography'
 
 import HTMLContent from '../html-content'
@@ -19,7 +19,7 @@ export default function RecipeCardNotExpanded ({ classes, recipe }) {
       <CardHeader avatar={avatarContent} title={author} subheader={pubDate} />
       <CardMedia className={media} src={thumbnail} title={title}>
         <img
-          data-src={thumbnail}
+          data-src={`https://res.cloudinary.com/dqtlmyuyi/image/fetch/q_auto:good,f_auto,h_200,dpr_auto,c_fit/${thumbnail}`}
           style={{height: '100%', width: '100%', objectFit: 'cover'}}
           className='lazyload'
           alt={title}

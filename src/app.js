@@ -11,7 +11,7 @@ import { render, hydrate } from 'react-dom'
 import BrowserRouter from 'react-router-dom/BrowserRouter'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import { PersistGate } from 'redux-persist/integration/react'
-import { Provider } from 'react-redux'
+import Provider from 'react-redux/es/components/Provider'
 import 'lazysizes/lazysizes.min.js'
 
 import AppRouting from './routing'

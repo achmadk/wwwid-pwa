@@ -8,7 +8,7 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const BabelMinifyWebpackPlugin = require('babel-minify-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
-// const HTMLCriticalPlugin = require('html-critical-webpack-plugin')
+const HTMLCriticalPlugin = require('html-critical-webpack-plugin')
 
 let webpackConfig = require('../webpack.config')
 
@@ -113,28 +113,28 @@ webpackConfig.plugins.push(
     background_color: "#ffffff",
     display: "standalone"
   }),
-  // new HTMLCriticalPlugin({
-  //   base: path.resolve(__dirname, '../dist'),
-  //   src: 'index.html',
-  //   dest: 'index.html',
-  //   inline: true,
-  //   minify: true,
-  //   extract: true,
-  //   timeout: 90000,
-  //   dimensions: [{
-  //     height: 640,
-  //     width: 360
-  //   }, {
-  //     height: 1024,
-  //     width: 768
-  //   }, {
-  //     height: 720,
-  //     width: 1280
-  //   }],
-  //   penthouse: {
-  //     blockJSRequest: false
-  //   }
-  // }),
+  new HTMLCriticalPlugin({
+    base: path.resolve(__dirname, '../dist'),
+    src: 'index.html',
+    dest: 'index.html',
+    inline: true,
+    minify: true,
+    extract: true,
+    timeout: 90000,
+    dimensions: [{
+      height: 640,
+      width: 360
+    }, {
+      height: 1024,
+      width: 768
+    }, {
+      height: 720,
+      width: 1280
+    }],
+    penthouse: {
+      blockJSRequest: false
+    }
+  }),
   new CompressionPlugin({
     test: /\.(js|css)/,
     cache: true

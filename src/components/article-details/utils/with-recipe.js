@@ -1,9 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
-const withRecipe = Component => ({ params, ...rest }) => {
-  let { recipe } = rest.location.state
+const withRecipe = Component => ({ params, articles, ...rest }) => {
+  let recipe = rest.location.state?.recipe || articles.find(({ guid }) => params.id === guid)
   return <Component {...rest} recipe={recipe} />
-  // return <Component {...rest} />
 }
 
-export default withRecipe
+const mapStateToProps = ({ articles }) => ({
+  articles: articles.data
+})
+
+export default compose(
+  connect(mapStateToProps),
+  withRecipe,
+)

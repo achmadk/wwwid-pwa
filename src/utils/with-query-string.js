@@ -1,5 +1,5 @@
 import React from 'react'
-import { parse } from 'qs'
+import * as parse from 'qs/lib/parse'
 
 const withQueryString = Component => props => {
   let { search } = props.location

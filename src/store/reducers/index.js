@@ -1,18 +1,20 @@
-import { combineReducers } from 'redux'
-import persistReducer from 'redux-persist/es/persistReducer'
-import storage from 'redux-persist/es/storage'
+
+import persistCombineReducers from 'redux-persist/es/persistCombineReducers'
+import createWebStorage from 'redux-persist/es/storage/createWebStorage'
 
 import articles from './articles'
+
+const storage = createWebStorage('local')
 
 const persistConfig = {
   key: 'wwwid-react',
   storage
 }
-const reducers = persistReducer(
+const reducers = persistCombineReducers(
   persistConfig,
-  combineReducers({
+  {
     articles
-  })
+  }
 )
 
 export default reducers

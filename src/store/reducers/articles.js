@@ -15,13 +15,13 @@ export default function actionReducers (state = initialState, action) {
           .replace('</p>', '')
         let description = `${firstParDesc
           .split('. ')[0]}${firstParDesc.includes('. ') ? '.' : ''}`
-        let thumbnail = `https://res.cloudinary.com/dqtlmyuyi/image/fetch/q_auto:good,f_auto,w_720,h_640,c_fill/${item.thumbnail}`
+        let thumbnail = `https://res.cloudinary.com/dqtlmyuyi/image/fetch/q_auto:good,f_auto,h_200,dpr_auto,c_fit/${item.thumbnail}`
         console.log('thumbnail: ', thumbnail)
         return {
           ...item,
-          // description
-          description,
-          thumbnail
+          description
+          // description,
+          // thumbnail
         }
       })
       return {

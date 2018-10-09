@@ -1,5 +1,5 @@
-import React, { PureComponent, Fragment } from 'react'
-import connect from 'react-redux/lib/connect/connect'
+import React, { PureComponent } from 'react'
+import connect from 'react-redux/es/connect/connect'
 
 import RecipeCardList from './recipe-card-list'
 
@@ -16,11 +16,11 @@ class Home extends PureComponent {
   render () {
     let { articles } = this.props
     return (
-      <Fragment>
+      <>
         {
           articles.map(recipe => <RecipeCardList key={`recipe-${recipe.guid}`} recipe={recipe} />)
         }
-      </Fragment>
+      </>
     )
   }
 }

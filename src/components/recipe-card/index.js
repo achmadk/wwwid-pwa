@@ -9,7 +9,7 @@ import RecipeCardNotExpanded from './recipe-card-not-expanded'
 import compose from 'recompose/compose'
 import withStyles from '@material-ui/core/styles/withStyles'
 
-function RecipeCard ({ recipe, expanded = false, goBack = null, classes, onClick, ...rest }) {
+function RecipeCard ({ recipe, expanded = false, goBack = null, classes, onClick }) {
   let cardClassName = !expanded ? classes.card : 'recipe'
   return (
     <Card className={cardClassName} onClick={onClick}>
@@ -19,11 +19,6 @@ function RecipeCard ({ recipe, expanded = false, goBack = null, classes, onClick
       {
         expanded && <RecipeCardExpanded classes={classes} recipe={recipe} goBack={goBack} />
       }
-      {/* <CardHeader avatar={avatarContent} title={name} subheader='' />
-      <CardMedia className={media} image={mainImageUrl} title={name} />
-      <CardContent>
-        <Typography component='p'>name</Typography>
-      </CardContent> */}
     </Card>
   )
 }

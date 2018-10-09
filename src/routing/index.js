@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
-import { withRouter, Route, Switch } from 'react-router-dom'
+import withRouter from 'react-router/withRouter'
+import Route from 'react-router/Route'
+import Switch from 'react-router/Switch'
+// import { withRouter, Route, Switch } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import compose from 'recompose/compose'
@@ -11,12 +14,6 @@ import Navbar from '../components/navbar'
 import Home from '../components/home'
 import ArticleDetails from '../components/article-details'
 import NotFound from '../components/not-found'
-// import About from '../components/about'
-// import Products from '../components/products'
-// import Menu from '../components/menu'
-// import Faq from '../components/faq'
-// import Contact from '../components/contact'
-// import Footer from '../components/footer'
 
 class App extends PureComponent {
   componentWillReceiveProps () {
@@ -25,14 +22,19 @@ class App extends PureComponent {
 
   render () {
     const { location } = this.props
-    const modal = location.state && location.state.to === 'modal'
-
+    console.log('location: ', location)
+    const modal = (location?.state?.to === 'modal') || (location.pathname === '/articles')
+    console.log('modal: ', modal)
     let activeModal = classnames('modal-container', {
       'modal-enter modal-enter-active': modal && !this.previousView
     })
 
-    let pos = modal ? location.state.meta.from : {}
+    let pos = modal ? (location?.state?.meta?.from || {}) : {}
     let homeLocation = modal ? this.previousView : location
+    console.log('homeLocation: ', homeLocation)
+    console.log('location: ', location)
+    console.log('modal: ', modal)
+    console.log('activeModal: ', activeModal)
     return (
       <div className='app'>
         <Navbar />

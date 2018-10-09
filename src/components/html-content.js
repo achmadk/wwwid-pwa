@@ -21,7 +21,7 @@ export default class HTMLContent extends PureComponent {
         pre: ['style']
       }
       let transformTags = {
-        'a': (tagName, attrs) => ({
+        'a': (_, attrs) => ({
           tagName: 'a',
           attribs: {
             ...attrs,
@@ -29,16 +29,16 @@ export default class HTMLContent extends PureComponent {
             rel: 'noopener noreferrer'
           }
         }),
-        'img': (tagName, {
+        'img': (_, {
           src
         }) => ({
           tagName: 'img',
           attribs: {
-            'data-src': src,
+            'data-src': `https://res.cloudinary.com/dqtlmyuyi/image/fetch/q_auto:good,f_auto,h_360,dpr_auto,c_fit/${src}`,
             class: 'lazyload'
           }
         }),
-        'pre': (tagName, attribs) => ({
+        'pre': (_, attribs) => ({
           tagName: 'pre',
           attribs: {
             ...attribs,
